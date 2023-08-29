@@ -1,0 +1,7 @@
+1. `npm create vite@latest`
+2. enter in a project name
+3. Down arrow to select React
+4. Down arrow to select Typescript
+5. cd into project name directly
+6. `npm install`
+7. `npm run dev`

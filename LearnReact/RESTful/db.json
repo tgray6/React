@@ -1,0 +1,19 @@
+{
+  "posts": [
+    {
+      "title": "Getting started with fetch",
+      "description": "How to interact with backend APIs using fetch",
+      "id": 1
+    },
+    {
+      "title": "New Title",
+      "description": "New Description",
+      "id": 2
+    },
+    {
+      "title": "Megaman",
+      "description": "MM7 is pretty cool",
+      "id": 3
+    }
+  ]
+}
