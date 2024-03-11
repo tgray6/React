@@ -1,15 +1,15 @@
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //DOES NOT USE REACTS useForm because it does not work with antD Form.useForm(). It is best to just use antD implementation, no need for reacts useForm(). This works similarly though
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, InputNumber } from "antd";
 
 interface FormValues {
-  name: string;
-  age: number;
+  name: string | undefined;
+  age: number | undefined;
 }
 
 export default function FormWithAntDesign() {
-  const [form] = Form.useForm();
+  const [form] = Form.useForm<FormValues>();
 
   const onFinish = (values: FormValues) => {
     console.log("Form Data:", values);
@@ -35,6 +35,10 @@ export default function FormWithAntDesign() {
             pattern: /^[A-Za-z]+$/,
             message: "Please input your name!",
           },
+          {
+            max: 10,
+            message: "Name cannot be longer than 10",
+          },
         ]}
       >
         <Input />
@@ -42,9 +46,16 @@ export default function FormWithAntDesign() {
       <Form.Item
         label="Age"
         name="age"
-        rules={[{ required: true, message: "Please input your age!" }]}
+        rules={[
+          { required: true, message: "Please input your age!" },
+          {
+            type: "number",
+            max: 10,
+            message: "Cannot be older than 10",
+          },
+        ]}
       >
-        <Input type="number" />
+        <InputNumber />
       </Form.Item>
       <Form.Item wrapperCol={{ offset: 17, span: 5 }}>
         <Button type="primary" htmlType="submit">
